@@ -9,14 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        // leading and trailing
+        
+//        ZStack {
+//            LinearGradient(gradient:Gradient(colors: [.blue,.red, .white]), startPoint:.leading, endPoint:.trailing).edgesIgnoringSafeArea(.all)
+//        }
+//
+//    }
+       //top and bottom gradient
+        ZStack {
+            LinearGradient(gradient:
+                            Gradient(colors:[.blue,.white]),
+                           startPoint:.topLeading,
+                           endPoint:.bottomTrailing).edgesIgnoringSafeArea(.all)
         }
-        .padding()
+        VStack{
+            Text("Copertino")
+        }
+
     }
+        
+        
 }
 
 struct ContentView_Previews: PreviewProvider {
