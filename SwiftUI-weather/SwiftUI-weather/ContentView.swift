@@ -1,9 +1,4 @@
-//
-//  ContentView.swift
-//  SwiftUI-weather
-//
-//  Created by Zafran Mac on 21/08/2024.
-//
+
 
 import SwiftUI
 
@@ -13,7 +8,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            backgroundview(topColor:isNight ? .black: .blue, bottomcolor: isNight ? .gray : Color("lightblue"))
+            backgroundview(isNight: $isNight)
             VStack(spacing:10){
                 
                citytestview(cityname: "Capertino,NY")
@@ -75,13 +70,15 @@ struct WeatherdayView: View {
 }
 
 struct backgroundview: View {
-    var topColor: Color
-    var bottomcolor: Color
+    @Binding var isNight : Bool
+//    var topColor: Color
+//    var bottomcolor: Color
+    
     var body: some View {
         
         
         
-        LinearGradient(gradient:Gradient(colors: [topColor, bottomcolor]), startPoint:.topLeading, endPoint:.bottomTrailing).edgesIgnoringSafeArea(.all)
+        LinearGradient(gradient:Gradient(colors: [isNight ? .black : .blue, isNight ? .gray: Color("lightBlue")]), startPoint:.topLeading, endPoint:.bottomTrailing).edgesIgnoringSafeArea(.all)
     }
 }
 struct citytestview:View{
